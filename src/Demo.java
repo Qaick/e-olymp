@@ -13,6 +13,6 @@ class Demo {
 
     public static boolean palin(int n) {
         boolean pal = false;
-
+        return pal;
     }
 }
