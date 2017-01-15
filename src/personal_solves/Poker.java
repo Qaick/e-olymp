@@ -4,10 +4,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * 21:49/40:00
+ * Ctrl+Y - delete line
+ * <p>
  * Created by olehb on 14.01.17.
  */
 public class Poker {
-    private static Card my2;
+
+    private static Card d1;
+    private static Card d2;
+    private static Card d3;
+    private static Card d4;
+    private static Card d5;
 
     static class Card {
         int rank;// 2-14
@@ -35,6 +43,11 @@ public class Poker {
             result = 31 * result + suit;
             return result;
         }
+
+        @Override
+        public String toString() {
+            return ""+cardRank.charAt(rank-2)+cardSuit.charAt(suit);
+        }
     }
 
     // hearts - червы, diamonds - бубны, clubs - трефы, spades - пики
@@ -43,7 +56,11 @@ public class Poker {
     private static int players = 2;
     private static int card_number = 52;
     private static Card my1;
+    private static Card my2;
     private static final String cardRank = "234567891jqka";
+    private static final String cardSuit = "hdcs";
+
+    private static final Random rand = new Random();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -52,21 +69,61 @@ public class Poker {
 //        if ((tmp = in.nextLine()) != "") card_number = Integer.valueOf(tmp);
 
         System.out.print("Number of players(2): ");
-        if ((tmp = in.nextLine()) != "") card_number = Integer.valueOf(tmp);
+        if (!(tmp = in.nextLine()).equals("")) card_number = Integer.valueOf(tmp);
 
         System.out.print("My cards(rand): ");
-        if ((tmp = in.nextLine()) != "") {
+        if (!(tmp = in.nextLine()).equals("")) {
             String[] cards = tmp.split(" ");
             my1 = parseCard(cards[0]);
             my2 = parseCard(cards[1]);
         } else {
-            Random rand = new Random();
-            String s1 = ""+cardRank.charAt(rand.nextInt(cardRank.length()))+(rand.nextInt(4)+'0');
-            String s2 = ""+cardRank.charAt(rand.nextInt(cardRank.length()))+(rand.nextInt(4)+'0');
+            String s1 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            String s2 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
             my1 = parseCard(s1);
-            my1 = parseCard(s2);
-            System.out.println(s1+ " " + s2);
+            my2 = parseCard(s2);
+            System.out.println(my1.toString() + " " + my2.toString());
         }
+        // calculate probability for combinations
+
+
+        System.out.print("Desk 3 cards(rand): ");
+        if (!(tmp = in.nextLine()).equals("")) {
+            String[] cards = tmp.split(" ");
+            d1 = parseCard(cards[0]);
+            d2 = parseCard(cards[1]);
+            d3 = parseCard(cards[2]);
+        } else {
+            String s1 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            String s2 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            String s3 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            d1 = parseCard(s1);
+            d2 = parseCard(s2);
+            d3 = parseCard(s3);
+            System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString());
+        }
+        // calculate probability for combinations
+
+
+        System.out.print("Desk 4-th card(rand): ");
+        if (!(tmp = in.nextLine()).equals("")) {
+            d4 = parseCard(tmp);
+        } else {
+            String s4 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            d4 = parseCard(s4);
+            System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString() + " " + d4.toString());
+        }
+        // calculate probability for combinations
+
+
+        System.out.print("Desk 5-th card(rand): ");
+        if (!(tmp = in.nextLine()).equals("")) {
+            d5 = parseCard(tmp);
+        } else {
+            String s5 = "" + cardRank.charAt(rand.nextInt(cardRank.length())) + cardSuit.charAt(rand.nextInt(4));
+            d5 = parseCard(s5);
+            System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString() + " " + d4.toString() + " " + d5.toString());
+        }
+        // calculate probability for combinations
 
 
     }
