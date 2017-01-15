@@ -14,8 +14,8 @@ import static test.SweetShop.*;
 class Candy {
   static { print("Loading Candy"); }
   public void method1(){}
-  @Override
-  private boolean equals(Object o) {return true;}
+//  @Override
+//  private boolean equals(Object o) {return true;}
 }
 
 class Gum {
