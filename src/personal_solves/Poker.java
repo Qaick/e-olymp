@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 /**
  * 21:49/40:00
- * Ctrl+Y - delete line
- * <p>
+ * 
  * Created by olehb on 14.01.17.
  */
 public class Poker {
@@ -55,6 +54,7 @@ public class Poker {
     // A 2 3 4 5 6 7 8 9 10 J Q K
     private static int players = 2;
     private static int card_number = 52;
+    private static int card_current_number;
     private static Card my1;
     private static Card my2;
     private static final String cardRank = "234567891jqka";
@@ -69,7 +69,8 @@ public class Poker {
 //        if ((tmp = in.nextLine()) != "") card_number = Integer.valueOf(tmp);
 
         System.out.print("Number of players(2): ");
-        if (!(tmp = in.nextLine()).equals("")) card_number = Integer.valueOf(tmp);
+        if (!(tmp = in.nextLine()).equals("")) players = Integer.valueOf(tmp);
+        card_current_number = card_number - players * 2;
 
         System.out.print("My cards(rand): ");
         if (!(tmp = in.nextLine()).equals("")) {
@@ -101,6 +102,7 @@ public class Poker {
             d3 = parseCard(s3);
             System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString());
         }
+        card_current_number -= 3;
         // calculate probability for combinations
 
 
@@ -112,6 +114,7 @@ public class Poker {
             d4 = parseCard(s4);
             System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString() + " " + d4.toString());
         }
+        card_current_number--;
         // calculate probability for combinations
 
 
@@ -123,6 +126,7 @@ public class Poker {
             d5 = parseCard(s5);
             System.out.println(d1.toString() + " " + d2.toString() + " " + d3.toString() + " " + d4.toString() + " " + d5.toString());
         }
+        card_current_number--;
         // calculate probability for combinations
 
 
