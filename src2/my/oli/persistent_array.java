@@ -1,10 +1,14 @@
+package oli;
+
 import java.io.*;
 
 /**
+ * Ver. 1.0
+ *
  * Created by olehb on 14.12.16.
  */
-@SuppressWarnings("duplication")
-public class per_arr_modified {
+@Deprecated
+public class persistent_array {
     final static String WhSp = "\\s";//whitespace
 
     /*  <persistent array>  */
@@ -14,9 +18,7 @@ public class per_arr_modified {
     static p_array root[] = new p_array[MAXQ];
 
     //n - elements count, s - lines count
-    static int n, s, a, b, v, w=0,
-    //            data[] = new int[MAXN],//used to setup first connections of system
-    cnt_a, cnt_b;
+    static int n, s, a, b, v, data[] = new int[MAXN], cnt_a, cnt_b;
     //data is binary tree where last element is element of problem
 
     static int new_node(int l, int r) {
@@ -29,17 +31,17 @@ public class per_arr_modified {
     static class p_array {
         int n, root;
 
-        int build(int start, int n) {
+        int build(int[] data, int start, int n) {
             if (n == 1)
-                return new_node(-1, -1);
+                return new_node(data[start], data[start]);
 
             int m = n / 2;
-            return new_node(build(0, m), build(m, n - m));
+            return new_node(build(data, 0, m), build(data, m, n - m));
         }
 
-        p_array(int n) {
+        p_array(int[] data, int n) {
             this.n = n;
-            root = build(0, n);
+            root = build(data, 0, n);
         }
 
         p_array(int n, int root) {
@@ -85,7 +87,7 @@ public class per_arr_modified {
     static int find_set(p_array root, int a) {
         int p = root.get(a);
 
-        if (p < 0)
+        if (p == 0)//<
             return a;
 
         int ans = find_set(root, p);
@@ -125,7 +127,7 @@ public class per_arr_modified {
             s = Integer.parseInt(ss[1]);
 //            lch = new int[s + 1];
 //            rch = new int[s + 1];
-            root[0] = new p_array(n + 1);
+            root[0] = new p_array(data, n + 1);
             for (int i = 1; i <= s; ++i) {
                 line = bufferedReader.readLine();
                 ss = line.split(WhSp);
@@ -133,10 +135,9 @@ public class per_arr_modified {
                 a = Integer.parseInt(ss[2]);
                 b = Integer.parseInt(ss[3]);
 
-                if (line.charAt(0) == '+') {
+                if (line.charAt(0) == '+')
                     root[i] = union_set(root[v], a, b);
-                    w++;
-                } else {
+                else {
                     int id_b = find_set(root[v], b);
                     int id_a = find_set(root[v], a);
                     answer.append(((id_a == id_b) ? "YES" : "NO") + '\n');

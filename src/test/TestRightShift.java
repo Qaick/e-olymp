@@ -1,4 +1,6 @@
-class Test{
+package test;
+
+class TestRightShift {
     public static void main(String args[]) {
         int or = 0b1;
         int noSignRightShift = 0xffff_ffff;

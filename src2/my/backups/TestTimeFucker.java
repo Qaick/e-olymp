@@ -1,4 +1,4 @@
-package backups;
+package my.backups;
 
 /**
  * Created by olehb on 13.12.16.
