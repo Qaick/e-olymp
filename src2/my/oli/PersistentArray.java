@@ -10,7 +10,7 @@ import java.io.*;
 @Deprecated
 @SuppressWarnings("duplication")
 public class per_arr_modified {
-    final static String WhSp = "\\s";//whitespace
+    final static String WhSp = "\\s";// whitespace
 
     /*  <persistent array>  */
     final static int MAXN = 100_005, MAXQ = MAXN, MAXS = 10_000_000;//1e8
@@ -19,8 +19,7 @@ public class per_arr_modified {
     static p_array root[] = new p_array[MAXQ];
 
     //n - elements count, s - lines count
-    static int n, s, a, b, v, w=0,
-    //            data[] = new int[MAXN],//used to setup first connections of system
+    static int n, s, a, b, v,
     cnt_a, cnt_b;
     //data is binary tree where last element is element of problem
 
@@ -138,10 +137,9 @@ public class per_arr_modified {
                 a = Integer.parseInt(ss[2]);
                 b = Integer.parseInt(ss[3]);
 
-                if (line.charAt(0) == '+') {
+                if (line.charAt(0) == '+')
                     root[i] = union_set(root[v], a, b);
-                    w++;
-                } else {
+                else {
                     int id_b = find_set(root[v], b);
                     int id_a = find_set(root[v], a);
                     answer.append(((id_a == id_b) ? "YES" : "NO") + '\n');
