@@ -1,15 +1,8 @@
-package test;
+package investigation;
 
-import sun.misc.Launcher;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.OptionalInt;
-import java.util.function.IntBinaryOperator;
-import java.util.function.IntConsumer;
 
-import static test.SweetShop.*;
+import static investigation.SweetShop.*;
 
 class Candy {
   static { print("Loading Candy"); }
@@ -41,7 +34,7 @@ public class SweetShop {
     print(Candy.class.getClassLoader().getClass().getName());
     print("After creating Candy");
     try {
-      Class.forName("test.Bi");
+      Class.forName("investigation.Bi");
     } catch(ClassNotFoundException e) {
       print("Couldn't find Gum");
     }

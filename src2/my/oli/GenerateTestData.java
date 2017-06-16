@@ -34,6 +34,7 @@ public class GenerateTestData {
             e.printStackTrace();
         }
 
+        // for controled scopes random numbers
 //        sb = new StringBuilder(elements + " " + queries + '\n');
 //        List<Integer> q = new ArrayList<>();
 //        q.add(0);

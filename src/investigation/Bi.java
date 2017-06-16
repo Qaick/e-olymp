@@ -1,6 +1,6 @@
-package test;
+package investigation;
 
-import static test.SweetShop.print;
+import static investigation.SweetShop.print;
 
 /**
  * Created by a1zberg on 24.12.2016.

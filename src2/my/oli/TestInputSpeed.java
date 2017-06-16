@@ -1,30 +1,49 @@
-package oli;
+package backups;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by a1zberg on 27.11.2016.
  */
 public class TestInputSpeed {
+    static StringBuilder sb1 = new StringBuilder(), sb2 = new StringBuilder();
+
     public static void main(String[] args) {
-        BufferedReader bi = new BufferedReader(new InputStreamReader(System.in));
-        String line;
-        StringBuilder sb = new StringBuilder();
-        System.out.println("ready?");
-        long time=0;
+        System.out.println("Test read file speed:");
+        withBuffer();
+        withScanner();
+        System.out.println(sb1.length()==sb2.length());
+    }
+
+    static void withBuffer() {
+        long time = System.currentTimeMillis();
+        BufferedReader bi = null;
         try {
-            System.out.println("readed: "+bi.readLine());
-            time = System.currentTimeMillis();
-            System.out.println("time");
+            bi = new BufferedReader(new FileReader("input.txt"),8192);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String line;
+        try {
             while ((line = bi.readLine()) != null)
-                for (String numStr: line.split("\\s"))
-                    sb.append(numStr);
+                sb1.append(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(System.currentTimeMillis()-time);
-        System.out.println(sb);
+        System.out.println("bi time: " + (System.currentTimeMillis() - time));
+    }
+
+    static void withScanner() {
+        long time = System.currentTimeMillis();
+        Scanner in = null;
+        try {
+            in = new Scanner(new File("input.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (in.hasNext())
+            sb2.append(in.nextLine());
+        System.out.println("scanner time: " + (System.currentTimeMillis() - time));
     }
 }

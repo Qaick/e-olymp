@@ -1,4 +1,4 @@
-package test;
+package investigation;
 
 class TestRightShift {
     public static void main(String args[]) {
