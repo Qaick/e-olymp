@@ -1,15 +1,14 @@
-package oli;
+package my.oli;
 
 import java.io.*;
 
 /**
  * Ver. 1.0
- * Have initial state from {@link data}.
+ * Have initial state from {@link PersistentArray_withInitialState#data}.
  *
  * Created by olehb on 14.12.16.
  */
-@Deprecated
-public class persistent_array {
+public class PersistentArray_withInitialState {
     final static String WhSp = "\\s";// whitespace
 
     /*  <persistent array>  */

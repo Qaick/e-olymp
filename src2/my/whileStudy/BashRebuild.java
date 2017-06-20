@@ -1,4 +1,4 @@
-package bashRebuilt;
+package my.whileStudy;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

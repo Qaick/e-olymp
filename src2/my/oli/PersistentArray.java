@@ -1,4 +1,4 @@
-package oli;
+package my.oli;
 
 import java.io.*;
 
@@ -7,9 +7,7 @@ import java.io.*;
  *
  * Created by olehb on 14.12.16.
  */
-@Deprecated
-@SuppressWarnings("duplication")
-public class per_arr_modified {
+public class PersistentArray {
     final static String WhSp = "\\s";// whitespace
 
     /*  <persistent array>  */

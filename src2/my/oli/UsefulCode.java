@@ -1,4 +1,4 @@
-package oli;
+package my.oli;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -34,20 +34,6 @@ public class UsefulCode {
         for (int i = 1; i <= k; i++) {
             r *= n - k + i;
             r /= i;
-        }
-        return Math.ceil(r - 0.2);
-    }
-
-    // Pascal's triangle. Not sure what algo has more precise.
-    static double binomial_coefficient(int n, int k) {
-        double r = 1;
-        for (int i = 1; i <= k; i++) {
-            r *= n - k + i;
-            r /= i;
-            if (r > tt) {
-                ca++;
-                r /= tt;
-            }
         }
         return Math.ceil(r - 0.2);
     }

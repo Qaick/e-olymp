@@ -1,4 +1,4 @@
-package oli;
+package my.oli;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * Created by a1zberg on 27.11.2016.
  */
-public class GenerateTestData {
+public class GenerateTestDataPersistentDisjointSet {
     public static void main(String[] args) {
         int elements = 10_000,
                 testel = 50*elements/100,

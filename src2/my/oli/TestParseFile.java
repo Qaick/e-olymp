@@ -1,4 +1,4 @@
-package backups;
+package my.oli;
 
 import java.io.*;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by a1zberg on 27.11.2016.
  */
-public class TestInputSpeed {
+public class TestParseFile {
     static StringBuilder sb1 = new StringBuilder(), sb2 = new StringBuilder();
 
     public static void main(String[] args) {
