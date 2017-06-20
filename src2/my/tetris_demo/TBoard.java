@@ -1,4 +1,4 @@
-package my.tetris_demo;
+package tetris_demo;
 
 import java.util.HashSet;
 import java.util.Random;
